@@ -82,48 +82,44 @@
         }
 
 
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr)); /* Creates responsive columns */
+            gap: 20px; /* Space between buttons */
+            justify-items: center; /* Center align buttons horizontally */
+            margin: 50px 200px;
+            //max-width: 1600px; /* Adjust the max width if needed */
+            //padding: 0 20px; /* Adjust padding if needed */
+        }
 
         .otherlinks-button {
-
             display: inline-block;
-
-            margin: 5px;
-
-            padding: 20px 120px;
-
+            margin: 20px;
+            padding: 20px 70px;
             background-color: #333;
-
             border: 2px solid #00ffcc;
-
             color: #00ffcc;
-
             font-size: 1.5rem;
-
             text-transform: uppercase;
-
             text-decoration: none;
-
             border-radius: 10px;
-
+            width: 45%; /* Make buttons stretch to fit their columns */
+            //height: 52%;
+            text-align: center;
             box-shadow: 0px 0px 15px #00ffcc;
-
             transition: all 0.3s ease-in-out;
-
         }
+
+        .otherlinks-button:hover {
+            background-color: #ff00ff;
+            box-shadow: 0px 0px 25px #ff00ff;
+        }
+
+        
 
 
 
         .game-button:hover {
-
-            background-color: #ff00ff;
-
-            box-shadow: 0px 0px 25px #ff00ff;
-
-        }
-
-
-
-        .otherlinks-button:hover {
 
             background-color: #ff00ff;
 
@@ -138,7 +134,97 @@
             margin-top: 50px;
 
             margin-bottom: 0px; /* Adds space before the footer */
+        }
+        .button-container2 {
 
+            margin-top: 0px;
+
+            margin-bottom: 0px; /* Adds space before the footer */
+
+        }
+        /* Popup styling */
+        #disclaimer-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #2d2d2d;
+            color: #ffcc00;
+            padding: 40px;
+            border: 2px solid #ffcc00;
+            box-shadow: 0px 0px 25px #ffcc00;
+            border-radius: 15px;
+            z-index: 1000;
+            display: none; /* Initially hidden */
+            text-align: center;
+            width: 80%;
+            max-height: 80%; /* Prevent it from getting too tall */
+            overflow-y: auto; /* Enable scrolling if content overflows */
+        }
+
+        #disclaimer-popup h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        #disclaimer-popup p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        #close-disclaimer,
+        #disclaimer-close-btn {
+            padding: 10px 30px;
+            background-color: #ffcc00;
+            color: #1a1a1a;
+            border: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #close-disclaimer:hover,
+        #disclaimer-close-btn:hover {
+            background-color: #ff9900;
+        }
+
+        #disclaimer-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background-color: transparent;
+            color: #ffcc00;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        #disclaimer-more-info {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #ffcc00;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        #disclaimer-more-info:hover {
+            color: #ff9900;
+        }
+
+        /* Blurred and dimmed background */
+        #page-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 999;
+            display: none; /* Initially hidden */
         }
 
 
@@ -210,9 +296,11 @@
             font-size: 0.9rem;
 
             color: #777;
-
+            }
+        .otherlinkstext {
+            margin-bottom: 10px;
+            margin-top: 100px;
         }
-
 
 
     </style>
@@ -224,7 +312,17 @@
 </head>
 
 <body>
+    <!-- Blurred Background -->
+    <div id="page-blur"></div>
 
+    <!-- Disclaimer Popup -->
+    <div id="disclaimer-popup">
+        <button id="disclaimer-close-btn">&times;</button>
+        <h3>Disclaimer</h3>
+        <p>All embedded games are property of their respective owners. By clicking "Got it!", you confirm that you are at least 18 years of age or have the legal capacity to access and use this website. You agree to comply with the website's Terms of Service and Privacy Policy. This site uses cookies to enhance your experience, and by continuing, you consent to the collection and use of your data as outlined in our policies. The content, games, and resources provided on this site are offered "as is" without any warranties, and you acknowledge that the site owners are not liable for any damages, losses, or consequences arising from the use of this site. Additionally, this site may contain links to third-party websites, and we do not take responsibility for the content, accuracy, or practices of these external sites. You agree that visiting any third-party links is at your own risk. Some games may contain flashing lights or other stimuli that could trigger health conditions such as seizures, so you agree to play at your own discretion.</p>
+        <button id="close-disclaimer">Got it!</button>
+        <a href="terms.html" id="disclaimer-more-info" target="_blank">More Info (ToS)</a>
+    </div>
 
 
     <h2>Welcome to EdCube Gaming & Resources</h2>
@@ -274,36 +372,41 @@
 
 
 
-    <h2>Other Links</h2>
+    <h2 class="otherlinkstext">Other Links</h2>
+    <div class="button-container2">
+    <p><a href="https://math-help.awiki.org/#ion" class="game-button" target="_blank" rel="noopener noreferrer">Interstellar Proxy</a></p>
 
-    <p><a href="https://math-help.awiki.org/#ion/" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Interstellar Proxy</a></p>
+    <p><a href="https://warbrokers.io/#ion/" class="game-button" target="_blank" rel="noopener noreferrer">Warbrokers.io</a></p>
 
-    <p><a href="https://warbrokers.io/#ion/" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Warbrokers.io</a></p>
+    <p><a href="https://slowroads.io/#ion/" class="game-button" target="_blank" rel="noopener noreferrer">Slowroads.io</a></p>
 
-    <p><a href="https://slowroads.io/#ion/" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Slowroads.io</a></p>
-
-    <p><a href="https://evowars.io/#ion/" class="otherlinks-button" target="_blank" rel="noopener noreferrer">EvoWars.io</a></p>
-
+    <p><a href="https://evowars.io/#ion/" class="game-button" target="_blank" rel="noopener noreferrer">EvoWars.io</a></p>
+    </div>
     <h2>Alternative EdCube Sites</h2>
-    <p><a href="https://edcubelearning.github.io/backup/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Github Pages</a></p>
-  
-    <p><a href="https://edcube.netlify.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Netlify #1</a></p>
-  
-    <p><a href="https://edcubestudios.netlify.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Netlify #2</a></p>
-  
-    <p><a href="https://edcubelearning.netlify.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Netlify #3</a></p>
-  
-    <p><a href="https://edcube.vercel.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Vercel #1</a></p>
 
-    <p><a href="https://edcube-edcubelearnings-projects.vercel.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Vercel #2</a></p>
+    <div class="button-grid">
 
-    <p><a href="https://edcube-git-main-edcubelearnings-projects.vercel.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Vercel #3</a></p>
+        <a href="https://edcubelearning.github.io/backup/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Github Pages</a>
+    
+        <a href="https://edcube.vercel.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Vercel #1</a>
 
-    <p><a href="https://edcube-studios.static.domains/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Static.app</a></p>
+        <a href="https://edcube.netlify.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Netlify #1</a>
+    
+        <a href="https://edcube-edcubelearnings-projects.vercel.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Vercel #2</a>
 
-    <p><a href="https://0xfffe.org/edcube/" class="otherlinks-button" target="_blank" rel="noopener noreferrer">0xfffe.org</a></p>
+        <a href="https://edcubestudios.netlify.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Netlify #2</a>
+    
+        <a href="https://edcube-git-main-edcubelearnings-projects.vercel.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Vercel #3</a>
 
-    <p><a href="https://afroblue.de/edcube/" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Afroblue.de</a></p>
+        <a href="https://edcubelearning.netlify.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Netlify #3</a>
+    
+        <a href="https://edcube-studios.static.domains/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Static.app</a>
+
+        <a href="https://0xfffe.org/edcube/" class="otherlinks-button" target="_blank" rel="noopener noreferrer">0xfffe.org</a>
+
+        <a href="https://afroblue.de/edcube/" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Afroblue.de</a>
+
+    </div>
 
     <!-- Footer -->
 
@@ -312,30 +415,15 @@
         <p>You can also use the hotkey "]" to go directly from the EdCube learning page to the game page.</p>
         <div class="social-icons">
 
-            <a href="https://x.com/edcubestudios" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://x.com/DesLearningHub" target="_blank"><i class="fab fa-twitter"></i></a>
 
             <a href="https://www.facebook.com/profile.php?id=61565159837722" target="_blank"><i class="fab fa-facebook"></i></a>
 
-            <a href="https://www.instagram.com/edcubestudios/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
 
             <a href="https://www.youtube.com/@edcubestudios" target="_blank"><i class="fab fa-youtube"></i></a>
 
-            <a href="https://discord.gg/bxVNGNeP" target="_blank"><i class="fab fa-discord"></i></a>
-
-            <a href="https://github.com/edcubelearning" target="_blank"><i class="fab fa-github"></i></a>
-
-            <a href="https://www.linkedin.com/in/edcube-studios-548469329/" target="_blank"><i class="fab fa-linkedin"></i></a>
-
-            <a href="https://pin.it/6fDRFcogp" target="_blank"><i class="fab fa-pinterest"></i></a>  
-
-            <a href="https://www.reddit.com/r/EdCubeStudios/" target="_blank"><i class="fab fa-reddit"></i></a>
-
-            <a href="https://www.twitch.tv/edcubestudios" target="_blank"><i class="fab fa-twitch"></i></a>
-
-            <a href="https://www.flickr.com/photos/201435764@N07/" target="_blank"><i class="fab fa-flickr"></i></a>
-
-            <a href="https://www.tumblr.com/edcubestudios" target="_blank"><i class="fab fa-tumblr"></i></a>
-
+            <a href="https://discord.gg/rBCZGeTR5k" target="_blank"><i class="fab fa-discord"></i></a>
 
         </div>
         <p><a href="https://forms.gle/avL9CVggEWEioNuq5" target="_blank" style="TEXT-DECORATION: underline">Feedback and game requests are greatly appreciated.</a></p>
@@ -349,6 +437,27 @@
 
 
 <script>
+// Show the disclaimer popup only if not already accepted during this session
+    window.onload = function () {
+        if (!sessionStorage.getItem('disclaimerAccepted')) {
+            document.getElementById('disclaimer-popup').style.display = 'block';
+            document.getElementById('page-blur').style.display = 'block';
+        }
+    };
+
+    // Close the disclaimer popup and set session storage
+    document.getElementById('close-disclaimer').onclick = function () {
+        document.getElementById('disclaimer-popup').style.display = 'none';
+        document.getElementById('page-blur').style.display = 'none';
+        sessionStorage.setItem('disclaimerAccepted', 'true');
+    };
+
+    // Close popup with X button
+    document.getElementById('disclaimer-close-btn').onclick = function () {
+        document.getElementById('disclaimer-popup').style.display = 'none';
+        document.getElementById('page-blur').style.display = 'none';
+        sessionStorage.setItem('disclaimerAccepted', 'true');
+    };
     document.addEventListener('keydown', function(event) {
         // Check if the '[' key is pressed 
         if (event.key === 'r' || event.key === '[') {
