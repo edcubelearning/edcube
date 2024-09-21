@@ -202,7 +202,90 @@
     <h2>Mini Royale</h2>
 
     <iframe src="https://miniroyale.io/#ion" title="Mini Royale"></iframe>
+    <div class="options-bar">
+        <button class="option">Krunker.io</button>
+        <a href="#" class="fullscreen-button" style="right: 180px; top: 735px;"><img src="newr3.png" class="fsimg" style="height: 45px; width: 45px;" alt="share"></a>
+        <a href="#" class="fullscreen-button" style="right: 140px;"><img src="si.png" class="fsimg" alt="share" id="share-button"></a>
+        <a href="#" class="fullscreen-button" id="fullscreen-button"><img class="fsimg" src="fsicon2.png" alt="fullscreen"></a>
+    </div>
 
+    <div class="modal" id="share-modal">
+        <button id="close-modal">✖</button>
+        <p>Share this link:</p>
+        <input type="text" id="share-link" value="" readonly style="width: 100%;" />
+        <button id="copy-button">Copy Link</button>
+    </div>
+
+    <div class="notification" id="notification">Copied!</div>
+
+       <script>
+        function toggleFullscreen(element) {
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.mozRequestFullScreen) {
+                    element.mozRequestFullScreen();
+                } else if (element.webkitRequestFullscreen) {
+                    element.webkitRequestFullscreen();
+                } else if (element.msRequestFullscreen) {
+                    element.msRequestFullscreen();
+                }
+            }
+        }
+
+        document.getElementById('fullscreen-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            const iframe = document.getElementById('game-iframe');
+            toggleFullscreen(iframe);
+        });
+
+        document.addEventListener('keydown', function(event) {
+            const iframe = document.getElementById('game-iframe');
+            if (event.key === 'f' || event.key === 'F') {
+                toggleFullscreen(iframe);
+            }
+            if (event.key === 'r' || event.key === '[') {
+                window.location.href = 'index.html';
+            }
+        });
+
+        // Share button functionality
+        const shareButton = document.getElementById('share-button');
+        const shareModal = document.getElementById('share-modal');
+        const closeModalButton = document.getElementById('close-modal');
+        const shareLinkInput = document.getElementById('share-link');
+        const copyButton = document.getElementById('copy-button');
+        const notification = document.getElementById('notification');
+
+        shareButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            shareLinkInput.value = window.location.href; // Set the current page URL
+            shareModal.style.display = 'block'; // Show the modal
+        });
+
+        closeModalButton.addEventListener('click', function() {
+            shareModal.style.display = 'none'; // Close the modal
+        });
+
+        copyButton.addEventListener('click', function() {
+            shareLinkInput.select();
+            document.execCommand('copy');
+            showNotification();
+        });
+
+        function showNotification() {
+            notification.style.display = 'block';
+            setTimeout(function() {
+                notification.style.opacity = '0';
+                setTimeout(function() {
+                    notification.style.display = 'none';
+                    notification.style.opacity = '1'; // Reset for next time
+                }, 500);
+            }, 3000);
+        }
+    </script>
 
 
     <a href="index.html" class="back-button">Back to Home</a>
