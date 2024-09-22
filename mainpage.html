@@ -50,40 +50,46 @@
             margin-top: 50px;
 
         }
-
-
-
-        .game-button {
-
-            display: inline-block;
-
-            margin: 20px;
-
-            padding: 20px 40px;
-
-            background-color: #333;
-
-            border: 2px solid #00ffcc;
-
-            color: #00ffcc;
-
-            font-size: 1.5rem;
-
-            text-transform: uppercase;
-
-            text-decoration: none;
-
-            border-radius: 10px;
-
-            box-shadow: 0px 0px 15px #00ffcc;
-
-            transition: all 0.3s ease-in-out;
-
-        }
       
+        .game-button {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            border-radius: 51px;
+            border: 2px solid #00ffcc;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .game-button img {
+            width: 100%;
+            height: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .game-button:hover img {
+            filter: blur(4px) brightness(0.7);
+        }
+
         .game-button span {
-            display: block;
-            margin-top: 5px; /* Space between the image and text */
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: #00ffcc;
+            //color: #FFFFFF;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .game-button:hover span {
+            opacity: 1;
         }
 
         .button-grid {
@@ -117,17 +123,6 @@
         }
 
         
-
-
-
-        .game-button:hover {
-
-            background-color: #ff00ff;
-
-            box-shadow: 0px 0px 25px #ff00ff;
-
-        }
-
 
 
         .button-container {
@@ -302,11 +297,6 @@
             margin-bottom: 10px;
             margin-top: 100px;
         }
-      
-        .gameimg {
-             height: 100px;
-             width: 100px;
-        }
 
     </style>
 
@@ -343,53 +333,53 @@
     <div class="button-container">
         <a href="amongus.html" class="game-button">Among Us</a>
 
-        <a href="bitlife.html" class="game-button"><img class="gameimg" src="/game_images/bitlife.png"><span>BitLife</span></a>
+        <a href="bitlife.html" class="game-button"><img class="gameimg" src="bitlife.png" alt="Bitlife Logo"><span>Bitlife</span></a>
 
-        <a href="cartoonstrike.html" class="game-button">Cartoon Strike</a>
+        <a href="cartoonstrike.html" class="game-button"><img class="gameimg" src="cartoonstrike.png" alt="Cartoon Strike Logo"><span>Cartoon Strike</span></a>
 
-        <a href="clashroyale.html" class="game-button">Clash Royale</a>
+        <a href="clashroyale.html" class="game-button"><img class="gameimg" src="clashroyale.png" alt="Clash Royale Logo"><span>Clash Royale</span></a>
       
-        <a href="cryzen.html" class="game-button">Cryzen.io</a>
+        <a href="cryzen.html" class="game-button"><img class="gameimg" src="cryzen.png" alt="Cryzen.io Logo"><span>Cryzen.io</span></a>
 
-        <a href="ferge.html" class="game-button">Ferge.io</a>
+        <a href="ferge.html" class="game-button"><img class="gameimg" src="ferge.png" alt="Ferge.io Logo"><span>Ferge.io</span></a>
       
-        <a href="krunker.html" class="game-button">Krunker.io</a>
+        <a href="krunker.html" class="game-button"><img class="gameimg" src="krunker.png" alt="Krunker.io Logo"><span>Krunker.io</span></a>
       
-        <a href="minecraft.html" class="game-button">Minecraft</a>
+        <a href="minecraft.html" class="game-button"><img class="gameimg" src="minecraft.png" alt="Minecraft Logo"><span>Minecraft</span></a>
       
-        <a href="miniroyale.html" class="game-button">Mini Royale</a>
+        <a href="miniroyale.html" class="game-button"><img class="gameimg" src="miniroyale.png" alt="Mini Royale Logo"><span>Mini Royale</span></a>
 
-        <a href="monkeymart.html" class="game-button">Monkey Mart</a>
+        <a href="monkeymart.html" class="game-button"><img class="gameimg" src="monkeymart.png" alt="Monkey Mart Logo"><span>Monkey Mart</span></a>
       
-        <a href="nealfun.html" class="game-button">Neal.fun</a>
+        <a href="nealfun.html" class="game-button"><img class="gameimg" src="nealfun.png" alt="Neal.fun Logo"><span>Neal.fun</span></a>
       
-        <a href="repuls.html" class="game-button">Repuls.io</a>
+        <a href="repuls.html" class="game-button"><img class="gameimg" src="repuls.png" alt="Repuls.io Logo"><span>Repuls.io</span></a>
       
-        <a href="shellshockers.html" class="game-button">Shellshockers</a>
+        <a href="shellshockers.html" class="game-button"><img class="gameimg" src="shellshockers.png" alt="Shellshockers Logo"><span>Shellshockers</span></a>
       
-        <a href="slayerz.html" class="game-button">Slayerz.io</a>
+        <a href="slayerz.html" class="game-button"><img class="gameimg" src="slayerz.png" alt="Slayerz.io Logo"><span>Slayerz.io</span></a>
       
-        <a href="slitherio.html" class="game-button">Slither.io</a>
+        <a href="slitherio.html" class="game-button"><img class="gameimg" src="slitherio.png" alt="Slither.io Logo"><span>Slither.io</span></a>
 
-        <a href="slope3.html" class="game-button">Slope 3</a>
+        <a href="slope3.html" class="game-button"><img class="gameimg" src="slope3.png" alt="Slope 3 Logo"><span>Slope 3</span></a>
 
-        <a href="smashkarts.html" class="game-button">Smash Karts</a>
+        <a href="smashkarts.html" class="game-button"><img class="gameimg" src="smashkarts.png" alt="Smash Karts Logo"><span>Smash Karts</span></a>
       
-        <a href="smashyroad.html" class="game-button">Smashy Road</a>
+        <a href="smashyroad.html" class="game-button"><img class="gameimg" src="smashyroad.png" alt="Smashy Road Logo"><span>Smashy Road</span></a>
 
-        <a href="stumbleguys.html" class="game-button">Stumble Guys</a>
+        <a href="stumbleguys.html" class="game-button"><img class="gameimg" src="stumbleguys.png" alt="Stumble Guys Logo"><span>Stumble Guys</span></a>
       
-        <a href="snowballio.html" class="game-button">Snowball.io</a>
+        <a href="snowballio.html" class="game-button"><img class="gameimg" src="snowballio.png" alt="Snowball.io Logo"><span>Snowball.io</span></a>
       
-        <a href="subwaysurfers.html" class="game-button">Subway Surfers</a>
+        <a href="subwaysurfers.html" class="game-button"><img class="gameimg" src="subwaysurfers.png" alt="Subway Surfers Logo"><span>Subway Surfers</span></a>
 
-        <a href="vectaria.html" class="game-button">Vectaria</a>
+        <a href="vectaria.html" class="game-button"><img class="gameimg" src="vectaria.png" alt="Vectaria Logo"><span>Vectaria</span></a>
       
-        <a href="warbands.html" class="game-button">Warbands</a>
+        <a href="warbands.html" class="game-button"><img class="gameimg" src="warbands.png" alt="Warbands Logo"><span>Warbands</span></a>
 
-        <a href="zombsroyale.html" class="game-button">Zombs Royale</a>
+        <a href="zombsroyale.html" class="game-button"><img class="gameimg" src="zombsroyale.png" alt="Zombs Royale Logo"><span>Zombs Royale</span></a>
 
-        <a href="justedit.html" class="game-button">1v1.lol</a>
+        <a href="justedit.html" class="game-button"><img class="gameimg" src="justedit.png" alt="1v1.lol Logo"><span>1v1.lol</span></a>
 
     </div>
 
