@@ -300,7 +300,44 @@
             margin-bottom: 10px;
             margin-top: 100px;
         }
+         header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #111;
+            box-shadow: 0px 0px 15px #00ffcc;
+        }
 
+        /* Logo styling */
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00ffcc;
+        }
+
+        /* Login & Signup Button Styling */
+        .header-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-buttons a {
+            padding: 10px 30px;
+            background-color: #333;
+            color: #00ffcc;
+            border: 2px solid #00ffcc;
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            border-radius: 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .header-buttons a:hover {
+            background-color: #ff00ff;
+            box-shadow: 0px 0px 25px #ff00ff;
+        }
     </style>
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
@@ -325,7 +362,16 @@
       </span>
 
     </div>
+    <header>
+        <!-- Logo -->
+        <div class="logo">Your Logo</div>
 
+        <!-- Login & Signup Buttons -->
+        <div class="header-buttons">
+            <a href="#login">Login</a>
+            <a href="#signup">Signup</a>
+        </div>
+    </header>
 
     <h2>Welcome to EdCube Gaming & Resources</h2>
 
