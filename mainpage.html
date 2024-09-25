@@ -339,23 +339,30 @@
             text-transform: uppercase;
             transition: background-color 0.3s ease-in-out;
         }
-       .header-buttons img {
-             height: 40px;
-             width: 40px;
-             margin: 0; /* Remove unnecessary margin */
-         }
-         
-         .header-buttons p {
-             margin: 0; /* Remove margin for proper alignment */
-             font-size: 1.2rem;
-             color: #00ffcc;
-         }
-
 
         .header-buttons a:hover {
             color: #ff00ff;
             text-shadow: 0px 0px 25px #ff00ff;
         }
+       /* Add this to style the cube and 0 counter */
+         .cube-counter {
+             display: flex;
+             align-items: center; /* Align vertically */
+             gap: 5px; /* Adjust the space between cube and "0" */
+         }
+         
+         .cube-counter img {
+             height: 40px;
+             width: 40px;
+             margin: 0; /* Remove any margin */
+         }
+         
+         .cube-counter p {
+             margin: 0; /* Remove margin for proper alignment */
+             font-size: 1.2rem;
+             color: #00ffcc;
+         }
+
     </style>
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
@@ -386,12 +393,15 @@
 
         <!-- Login & Signup Buttons -->
         <div class="header-buttons">
-            <img src="cube.png" style="margin-right: 5px;" alt="Cube Currency:">
-            <p style="margin-left: 0px;">0</p>
-            <a href="#shop">Shop</a>
-            <a href="#login">Login</a>
-            <a href="#signup">Register</a>
-        </div>
+             <div class="cube-counter">
+                 <img src="cube.png" alt="Cube Currency:">
+                 <p>0</p>
+             </div>
+             <a href="#shop">Shop</a>
+             <a href="#login">Login</a>
+             <a href="#signup">Register</a>
+         </div>
+
     </header>
 
     <h2>Welcome to EdCube Gaming & Resources</h2>
