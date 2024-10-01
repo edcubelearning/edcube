@@ -1,0 +1,639 @@
+   <!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EdCube | Amazing free math.</title>
+    <link rel="icon" href="https://i.ibb.co/bK5HjNQ/edcubefavicon.jpg" type="image/x-icon">
+
+    <style>
+
+        body {
+
+            background-color: #1a1a1a;
+
+            color: #00ffcc;
+
+            font-family: 'Orbitron', sans-serif;
+
+            margin: 0;
+
+            padding: 0;
+
+            text-align: center;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: flex-start;
+
+        }
+
+
+
+        h2 {
+
+            font-size: 3rem;
+
+            color: #00ffcc;
+
+            text-shadow: 0px 0px 10px #00ffcc;
+
+            margin-top: 50px;
+
+        }
+      
+        .game-button {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            border-radius: 51px;
+            border: 2px solid #00ffcc;
+            box-shadow: 0px 0px 15px #00ffcc;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .game-button:hover {
+            border: 2px solid #ff00ff;
+            box-shadow: 0px 0px 15 px #ff00ff;
+        }
+        .game-button img {
+            width: 100%;
+            height: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .game-button:hover img {
+            filter: blur(4px) brightness(0.7);
+        }
+
+        .game-button span {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: #00ffcc;
+            //color: #FFFFFF;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .game-button:hover span {
+            opacity: 1;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr)); /* Creates responsive columns */
+            gap: 20px; /* Space between buttons */
+            justify-items: center; /* Center align buttons horizontally */
+            margin: 50px 200px;
+        }
+
+        .otherlinks-button {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px 70px;
+            background-color: #333;
+            border: 2px solid #00ffcc;
+            color: #00ffcc;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 10px;
+            width: 45%; /* Make buttons stretch to fit their columns */
+            text-align: center;
+            box-shadow: 0px 0px 15px #00ffcc;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .otherlinks-button:hover {
+            background-color: #ff00ff;
+            box-shadow: 0px 0px 25px #ff00ff;
+        }
+
+
+        .button-container {
+
+            margin-top: 50px;
+
+            margin-bottom: 0px; /* Adds space before the footer */
+        }
+        .button-container2 {
+
+            margin-top: 0px;
+
+            margin-bottom: 0px; /* Adds space before the footer */
+
+        }
+        /* Popup styling */
+        #disclaimer-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #2d2d2d;
+            color: #ffcc00;
+            padding: 40px;
+            border: 2px solid #ffcc00;
+            box-shadow: 0px 0px 25px #ffcc00;
+            border-radius: 15px;
+            z-index: 1000;
+            display: none; /* Initially hidden */
+            text-align: center;
+            width: 80%;
+            max-height: 80%; /* Prevent it from getting too tall */
+            overflow-y: auto; /* Enable scrolling if content overflows */
+        }
+
+        #disclaimer-popup h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        #disclaimer-popup p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        #close-disclaimer,
+        #disclaimer-close-btn {
+            padding: 10px 30px;
+            background-color: #ffcc00;
+            color: #1a1a1a;
+            border: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #close-disclaimer:hover,
+        #disclaimer-close-btn:hover {
+            background-color: #ff9900;
+        }
+
+        #disclaimer-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background-color: transparent;
+            color: #ffcc00;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        #disclaimer-more-info {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #ffcc00;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        #disclaimer-more-info:hover {
+            color: #ff9900;
+        }
+
+        /* Blurred and dimmed background */
+        #page-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 999;
+            display: none; /* Initially hidden */
+        }
+
+
+
+        /* Footer styling */
+
+        footer {
+
+            background-color: #111;
+
+            color: #cccccc;
+
+            padding: 20px 0;
+
+            text-align: center;
+
+            position: relative;
+
+            margin-top: 50px;
+
+            bottom: 0;
+
+            width: 100%;
+
+        }
+
+
+
+        footer a {
+
+            color: #00ffcc;
+
+            text-decoration: none;
+
+            margin: 0 10px;
+
+            transition: color 0.3s ease;
+
+        }
+
+
+
+        footer a:hover {
+
+            color: #ff00ff;
+
+        }
+
+
+
+        .social-icons a {
+
+            margin: 0 10px;
+
+        }
+
+
+
+        .social-icons i {
+
+            font-size: 1.5rem;
+
+        }
+
+
+
+        .disclaimer {
+
+            font-size: 0.9rem;
+
+            color: #777;
+            }
+        .otherlinkstext {
+            margin-bottom: 10px;
+            margin-top: 100px;
+        }
+         header {
+             display: flex;
+             justify-content: space-between;
+             align-items: center; /* Align vertically */
+             padding: 0px 50px; /* Reduce padding to fit better */
+             background-color: #111;
+             box-shadow: 0px 0px 15px #00ffcc;
+         }
+
+
+        /* Logo styling */
+        .logo {
+            margin-top: 7px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00ffcc;
+        }
+        .logo img {
+            height: 50px;
+            width: 50px;
+        }
+
+        /* Login & Signup Button Styling */
+        .header-buttons {
+             display: flex;
+             align-items: center; /* Align items vertically */
+             gap: 20px;
+         }
+
+
+        .header-buttons a {
+            padding: 10px 0px;
+            //background-color: #333;
+            color: #00ffcc;
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .header-buttons a:hover {
+            color: #ff00ff;
+            text-shadow: 0px 0px 25px #ff00ff;
+        }
+       /* Add this to style the cube and 0 counter */
+         .cube-counter {
+             display: flex;
+             align-items: center; /* Align vertically */
+             gap: 5px; /* Adjust the space between cube and "0" */
+         }
+         
+         .cube-counter img {
+             height: 40px;
+             width: 40px;
+             margin: 0; /* Remove any margin */
+         }
+         
+         .cube-counter p {
+             margin: 0; /* Remove margin for proper alignment */
+             font-size: 1.2rem;
+             color: #00ffcc;
+         }
+
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Blurred Background -->
+    <div id="page-blur"></div>
+
+    <!-- Disclaimer Popup -->
+    <div id="disclaimer-popup">
+        <button id="disclaimer-close-btn">&times;</button>
+        <h3>Disclaimer</h3>
+        <p>All embedded games are property of their respective owners. By clicking "Got it!", you confirm that you are at least 18 years of age or have the legal capacity to access and use this website. You agree to comply with the website's Terms of Service and Privacy Policy. This site uses cookies to enhance your experience, and by continuing, you consent to the collection and use of your data as outlined in our policies. The content, games, and resources provided on this site are offered "as is" without any warranties, and you acknowledge that the site owners are not liable for any damages, losses, or consequences arising from the use of this site. Additionally, this site may contain links to third-party websites, and we do not take responsibility for the content, accuracy, or practices of these external sites. You agree that visiting any third-party links is at your own risk. Some games may contain flashing lights or other stimuli that could trigger health conditions such as seizures, so you agree to play at your own discretion.</p>
+        <button id="close-disclaimer">Got it!</button>
+      <span style="margin-top: 10px;">
+          <a href="terms.html" id="disclaimer-more-info" target="_self" style="margin-right: 10px;">Terms of Service</a>
+          <a href="privacypolicy.html" id="disclaimer-more-info" target="_self">Privacy Policy</a>
+      </span>
+
+    </div>
+    <header>
+        <!-- Logo -->
+        <div class="logo"><img src="newmain.jpeg"></div>
+
+        <!-- Login & Signup Buttons -->
+        <div class="header-buttons">
+             <div class="cube-counter">
+                 <img src="cube.png" alt="Cube Currency:">
+                 <p>0</p>
+             </div>
+             <a href="#shop">Shop</a>
+             <a href="#login">Login</a>
+             <a href="#signup">Register</a>
+         </div>
+
+    </header>
+
+    <h2>Welcome to EdCube Gaming & Resources</h2>
+
+    <p>Select a game to start playing:</p>
+
+
+
+    <div class="button-container">
+        <!-- Example: <a href=".html" class="game-button"><img class="gameimg" src="/game_images/.png" alt=" Logo"><span></span></a> -->
+        <a href="amongus.html" class="game-button"><img class="gameimg" src="/game_images/amongus.png" alt="Among Us Logo"><span>Among Us</span></a>
+
+        <a href="battleroyale.html" class="game-button"><img class="gameimg" src="/game_images/battleroyale.png" alt="Battle Royale Logo"><span>Battle Royale</span></a>
+
+        <a href="bitlife.html" class="game-button"><img class="gameimg" src="/game_images/bitlife.png" alt="Bitlife Logo"><span>Bitlife</span></a>
+
+        <a href="bulletbonanza.html" class="game-button"><img class="gameimg" src="/game_images/bulletbonanza.png" alt="Bullet Bonanza Logo"><span>Bullet Bonanza</span></a>
+
+        <a href="cartoonstrike.html" class="game-button"><img class="gameimg" src="/game_images/cartoonstrike.png" alt="Cartoon Strike Logo"><span>Cartoon Strike</span></a>
+
+        <a href="clankerio.html" class="game-button"><img class="gameimg" src="/game_images/clankerio.png" alt="Clanker.io Logo"><span>Clanker.io</span></a>
+
+        <a href="clashroyale.html" class="game-button"><img class="gameimg" src="/game_images/clashroyale.png" alt="Clash Royale Logo"><span>Clash Royale</span></a>
+      
+        <a href="cryzen.html" class="game-button"><img class="gameimg" src="/game_images/cryzen.png" alt="Cryzen.io Logo"><span>Cryzen.io</span></a>
+
+        <a href="ferge.html" class="game-button"><img class="gameimg" src="/game_images/ferge.png" alt="Ferge.io Logo"><span>Ferge.io</span></a>
+
+        <a href="geodash.html" class="game-button"><img class="gameimg" src="/game_images/geodash.png" alt="GeoDash Lite Logo"><span>Geometry Dash Lite</span></a>
+      
+        <a href="krunker.html" class="game-button"><img class="gameimg" src="/game_images/krunker.png" alt="Krunker.io Logo"><span>Krunker.io</span></a>
+
+        <a href="lolshot.html" class="game-button"><img class="gameimg" src="/game_images/lolshot.png" alt="Lolshot.io Logo"><span>Lolshot.io</span></a>
+      
+        <a href="minecraft.html" class="game-button"><img class="gameimg" src="/game_images/minecraft.png" alt="Minecraft Logo"><span>Minecraft</span></a>
+      
+        <a href="miniroyale.html" class="game-button"><img class="gameimg" src="/game_images/miniroyale.png" alt="Mini Royale Logo"><span>Mini Royale</span></a>
+
+        <a href="monkeymart.html" class="game-button"><img class="gameimg" src="/game_images/monkeymart.png" alt="Monkey Mart Logo"><span>Monkey Mart</span></a>
+      
+        <a href="nealfun.html" class="game-button"><img class="gameimg" src="/game_images/nealfun.png" alt="Neal.fun Logo"><span>Neal.fun</span></a>
+
+        <a href="nuggetroyale.html" class="game-button"><img class="gameimg" src="/game_images/nuggetroyale.png" alt="Nugget Royale Logo"><span>Nugget Royale</span></a>
+
+        <a href="paperio.html" class="game-button"><img class="gameimg" src="/game_images/paperio.png" alt="Paper.io Logo"><span>Paper.io 2</span></a>
+      
+        <a href="repuls.html" class="game-button"><img class="gameimg" src="/game_images/repuls.png" alt="Repuls.io Logo"><span>Repuls.io</span></a>
+
+        <a href="sandstrike.html" class="game-button"><img class="gameimg" src="/game_images/sandstrike.png" alt="Sand Strike Logo"><span>Sand Strike</span></a>
+      
+        <a href="shellshockers.html" class="game-button"><img class="gameimg" src="/game_images/shellshockers.png" alt="Shellshockers Logo"><span>Shellshockers</span></a>
+      
+        <a href="slayerz.html" class="game-button"><img class="gameimg" src="/game_images/slayerz.png" alt="Slayerz.io Logo"><span>Slayerz.io</span></a>
+      
+        <a href="slitherio.html" class="game-button"><img class="gameimg" src="/game_images/slitherio.png" alt="Slither.io Logo"><span>Slither.io</span></a>
+
+        <a href="slope3.html" class="game-button"><img class="gameimg" src="/game_images/slope3.png" alt="Slope 3 Logo"><span>Slope 3</span></a>
+
+        <a href="smashkarts.html" class="game-button"><img class="gameimg" src="/game_images/smashkarts.png" alt="Smash Karts Logo"><span>Smash Karts</span></a>
+      
+        <!-- <a href="smashyroad.html" class="game-button"><img class="gameimg" src="/game_images/smashyroad.png" alt="Smashy Road Logo"><span>Smashy Road</span></a> -->
+
+        <a href="snowballio.html" class="game-button"><img class="gameimg" src="/game_images/snowballio.png" alt="Snowball.io Logo"><span>Snowball.io</span></a>
+
+        <!-- <a href="scm.html" class="game-button"><img class="gameimg" src="/game_images/scm.png" alt="Storm City Mafia Logo"><span>Storm City Mafia</span></a> -->
+        
+        <a href="starblast.html" class="game-button"><img class="gameimg" src="/game_images/starblast.png" alt="Starblast Logo"><span>Starblast.io</span></a>
+
+        <a href="stumbleguys.html" class="game-button"><img class="gameimg" src="/game_images/stumbleguys.png" alt="Stumble Guys Logo"><span>Stumble Guys</span></a>
+      
+        <a href="subwaysurfers.html" class="game-button"><img class="gameimg" src="/game_images/subwaysurfers.png" alt="Subway Surfers Logo"><span>Subway Surfers</span></a>
+
+        <a href="survivio.html" class="game-button"><img class="gameimg" src="/game_images/survivio.png" alt="Surviv.io Logo"><span>Surviv.io</span></a>
+
+        <a href="vectaria.html" class="game-button"><img class="gameimg" src="/game_images/vectaria.png" alt="Vectaria Logo"><span>Vectaria</span></a>
+      
+        <a href="warbands.html" class="game-button"><img class="gameimg" src="/game_images/warbands.png" alt="Warbands Logo"><span>Warbands</span></a>
+
+        <a href="justedit.html" class="game-button"><img class="gameimg" src="/game_images/justedit.png" alt="1v1.lol Logo"><span>1v1.lol</span></a>
+
+    </div>
+
+
+    <h2 class="otherlinkstext">Resources</h2>
+    <div class="button-grid">
+      <a href="interstellar-links.html" class="game-button"><img class="gameimg" src="/game_images/interstellar.png" alt="Interstellar Logo"><span>80+ Interstellar Proxy Links</span></a>
+      
+      <a href="chatgpt.html" class="game-button"><img class="gameimg" src="/game_images/chatgpt.png" alt="ChatGPT Logo"><span>ChatGPT</span></a>
+
+      <a href="incog.html" class="game-button"><img class="gameimg" src="/game_images/searchencrypt.png" alt="Search Encrypt Logo"><span>Incognito Search</span></a>
+
+      <a href="litsolutions.html" class="game-button"><img class="gameimg" src="/game_images/litsolutions.png" alt="LitSolutions Logo"><span>Textbook Answers</span></a>
+
+    </div>
+
+    <h2 class="otherlinkstext">External Links</h2>
+    <div class="button-grid">
+
+    <p><a href="https://cubeproxy.vercel.app" class="game-button" target="_blank" rel="noopener noreferrer"><img class="gameimg" src="/game_images/cubeproxy.png" alt="CubeProxy Logo"><span>CubeProxy</span></a></p>
+    
+    <p><a href="https://cube0.vercel.app" class="game-button" target="_blank" rel="noopener noreferrer"><img class="gameimg" src="/game_images/cube0.png" alt="CUBE0 AI Logo"><span>CUBE0 AI</span></a></p>
+    
+    <p><a href="hhttps://sites.google.com/view/edcubetech/home" class="game-button" target="_blank" rel="noopener noreferrer"><img class="gameimg" src="/game_images/edcubetech.png" alt="EdCube Tech Logo"><span>EdCube Tech Tips</span></a></p>
+      
+    <p><a href="https://history.education.hbmc.net" class="game-button" target="_blank" rel="noopener noreferrer"><img class="gameimg" src="/game_images/interstellar.png" alt="Interstellar Logo"><span>Interstellar Proxy</span></a></p>
+
+    <!-- Brawl Stars -->
+    <p><a href="https://yandex.com/games/app/253517?utm_source=game_popup_menu#app-id=253517&catalog-session-uid=catalog-02a08b17-291b-5a78-b202-144f7646e591-1726702840392-4e1d&rtx-reqid=2660801901021142540&pos=%7B%22listType%22%3A%22suggested%22%2C%22tabCategory%22%3A%22common%22%7D&redir-data=%7B%22block%22%3A%22suggested%22%2C%22block_index%22%3A1%2C%22card%22%3A%22adaptive_recommended_new%22%2C%22col%22%3A0%2C%22first_screen%22%3A1%2C%22page%22%3A%22main%22%2C%22rn%22%3A495889249%2C%22row%22%3A1%2C%22rtx_reqid%22%3A%222660801901021142540%22%2C%22same_block_index%22%3A0%2C%22wrapper%22%3A%22grid-list%22%2C%22request_id%22%3A%221726702840098486-17352082741524227831-edi3xrljjzd2t6o6-BAL%22%2C%22http_ref%22%3A%22https%253A%252F%252Fyandex.com%252Fgames%252F%22%7D/#ion" class="game-button" target="_blank" rel="noopener noreferrer"><img class="gameimg" src="/game_images/brawlstars.png" alt="Brawl Stars Logo"><span>Brawl Stars</span></a></p>
+
+    <p><a href="https://www.silvergames.com/en/#ion" class="game-button" target="_blank" rel="noopener noreferrer"><img class="gameimg" src="/game_images/silvergames.png" alt="Silver Games Logo"><span>Silver Games</span></a></p>
+
+    <p><a href="https://www.gamecomets.com/#ion" class="game-button" target="_blank" rel="noopener noreferrer"><img class="gameimg" src="/game_images/gamecomets.png" alt="Game Comets Logo"><span>Game Comets</span></a></p>
+
+    <p><a href="https://www.retrogames.me/#ion" class="game-button" target="_blank" rel="noopener noreferrer"><img class="gameimg" src="/game_images/retrogames.png" alt="Retro Games Logo"><span>Retro Games</span></a></p>
+
+    <p><a href="https://www.yandex.com/games/#ion" class="game-button" target="_blank" rel="noopener noreferrer"><img class="gameimg" src="/game_images/yandexgames.png" alt="Yandex Games Logo"><span>Yandex Games</span></a></p>
+      
+    <p><a href="https://warbrokers.io/#ion/" class="game-button" target="_blank" rel="noopener noreferrer"><img class="gameimg" src="/game_images/warbrokers.png" alt="Warbrokers.io Logo"><span>Warbrokers</span></a></p>
+
+    <p><a href="https://slowroads.io/#ion/" class="game-button" target="_blank" rel="noopener noreferrer"><img class="gameimg" src="/game_images/slowroads.png" alt="Slowroads.io Logo"><span>Slowroads.io</span></a></p>
+
+    <p><a href="https://evowars.io/#ion/" class="game-button" target="_blank" rel="noopener noreferrer"><img class="gameimg" src="/game_images/evowars.png" alt="Evowars Logo"><span>EvoWars</span></a></p>
+    </div>
+    <h2>Alternative EdCube Sites</h2>
+
+    <div class="button-grid">
+
+        <a href="https://edcubelearning.github.io/backup/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Github Pages</a>
+    
+        <a href="https://edcube.vercel.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Vercel #1</a>
+
+        <a href="https://edcube.netlify.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Netlify #1</a>
+    
+        <a href="https://edcube-edcubelearnings-projects.vercel.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Vercel #2</a>
+
+        <a href="https://edcubestudios.netlify.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Netlify #2</a>
+    
+        <a href="https://edcube-git-main-edcubelearnings-projects.vercel.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Vercel #3</a>
+
+        <a href="https://edcubelearning.netlify.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Netlify #3</a>
+    
+        <a href="https://edcube-studios.static.domains/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Static.app</a>
+
+        <a href="https://0xfffe.org/edcube/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">0xfffe.org</a>
+
+        <a href="https://afroblue.de/edcube/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Afroblue.de</a>
+
+        <a href="https://edcube.glitch.me/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Glitch #1</a>
+
+        <a href="https://edcube.neocities.org" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Neocities</a>
+
+        <a href="https://backup-w1ew.onrender.com" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Render</a>
+
+        <a href="https://brief-horse-puny.on-fleek.app/" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Fleek</a>
+      
+    </div>
+
+    <!-- Footer -->
+
+    <footer>
+        <p>💡 Pro Tip! Use the hotkey "[" or "r" to quickly switch from any page to the EdCube learning page.</p>
+        <p>You can also use the hotkey "]" to go directly from the EdCube learning page to the game page.</p>
+        <div class="social-icons">
+
+            <a href="https://x.com/edcubestudios" target="_blank"><i class="fab fa-twitter"></i></a>
+
+            <a href="https://www.facebook.com/profile.php?id=61565159837722" target="_blank"><i class="fab fa-facebook"></i></a>
+
+            <a href="https://www.instagram.com/edcubestudios/" target="_blank"><i class="fab fa-instagram"></i></a>
+
+            <a href="https://www.youtube.com/@edcubestudios" target="_blank"><i class="fab fa-youtube"></i></a>
+
+            <a href="https://discord.gg/bxVNGNeP" target="_blank"><i class="fab fa-discord"></i></a>
+
+            <a href="https://github.com/edcubelearning" target="_blank"><i class="fab fa-github"></i></a>
+
+            <a href="https://www.linkedin.com/in/edcube-studios-548469329/" target="_blank"><i class="fab fa-linkedin"></i></a>
+
+            <a href="https://pin.it/6fDRFcogp" target="_blank"><i class="fab fa-pinterest"></i></a>  
+
+            <a href="https://www.reddit.com/r/EdCubeStudios/" target="_blank"><i class="fab fa-reddit"></i></a>
+
+            <a href="https://www.twitch.tv/edcubestudios" target="_blank"><i class="fab fa-twitch"></i></a>
+
+            <a href="https://www.flickr.com/photos/201435764@N07/" target="_blank"><i class="fab fa-flickr"></i></a>
+
+            <a href="https://www.tumblr.com/edcubestudios" target="_blank"><i class="fab fa-tumblr"></i></a>
+
+
+
+        </div>
+        <p><a href="https://forms.gle/avL9CVggEWEioNuq5" target="_blank" style="TEXT-DECORATION: underline">Feedback and game requests are greatly appreciated.</a></p>
+        <div class="disclaimer">
+
+            <p>Disclaimer: All embedded games are property of their respective owners.</p>
+
+        </div>
+
+    </footer>
+
+
+<script>
+// Show the disclaimer popup only if not already accepted during this session
+    window.onload = function () {
+        if (!sessionStorage.getItem('disclaimerAccepted')) {
+            document.getElementById('disclaimer-popup').style.display = 'block';
+            document.getElementById('page-blur').style.display = 'block';
+        }
+    };
+
+    // Close the disclaimer popup and set session storage
+    document.getElementById('close-disclaimer').onclick = function () {
+        document.getElementById('disclaimer-popup').style.display = 'none';
+        document.getElementById('page-blur').style.display = 'none';
+        sessionStorage.setItem('disclaimerAccepted', 'true');
+    };
+
+    // Close popup with X button
+    document.getElementById('disclaimer-close-btn').onclick = function () {
+        document.getElementById('disclaimer-popup').style.display = 'none';
+        document.getElementById('page-blur').style.display = 'none';
+        sessionStorage.setItem('disclaimerAccepted', 'true');
+    };
+    document.addEventListener('keydown', function(event) {
+        // Check if the '[' key is pressed 
+        if (event.key === 'r' || event.key === '[') {
+            // Redirect to the desired page
+            window.location.href = 'index.html'; // Replace with the actual URL
+        }
+    });
+</script>
+</body>
+
+</html>
+
