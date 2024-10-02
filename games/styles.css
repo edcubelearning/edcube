@@ -1,0 +1,176 @@
+body {
+
+            background-color: #1a1a1a;
+
+            color: #00ffcc;
+
+            font-family: 'Orbitron', sans-serif;
+
+            margin: 0;
+
+            padding: 0;
+
+            text-align: center;
+
+        }
+
+
+
+        h2 {
+
+            font-size: 3rem;
+
+            color: #00ffcc;
+
+            text-shadow: 0px 0px 10px #00ffcc;
+
+            margin-top: 20px;
+
+        }
+
+
+
+        iframe {
+
+            border: 2px solid #00ffcc;
+
+            box-shadow: 0px 0px 15px #00ffcc;
+
+            margin-top: 20px;
+
+            width: 90%;
+
+            height: 600px;
+
+            transition: all 0.3s ease-in-out;
+
+        }
+
+
+
+        iframe:hover {
+
+            transform: scale(1.02);
+
+            box-shadow: 0px 0px 25px #ff00ff;
+
+        }
+
+
+
+        .back-button {
+
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding: 15px 30px;
+
+            background-color: #333;
+
+            border: 2px solid #00ffcc;
+
+            color: #00ffcc;
+
+            text-decoration: none;
+
+            font-size: 1.5rem;
+
+            border-radius: 10px;
+
+            box-shadow: 0px 0px 15px #00ffcc;
+
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+
+        }
+
+
+
+        .back-button:hover {
+
+            background-color: #ff00ff;
+
+            box-shadow: 0px 0px 25px #ff00ff;
+
+        }
+        .fullscreen-button {
+            position: absolute;
+            top: 740px;
+            right: 80px;
+            padding: 15px 30px;
+            border-radius: 10px;
+        }
+
+        .fsimg {
+            height: 30px;
+            width: 30px;
+        }
+
+        .options-bar {
+            width: 90%;
+            height: 30px;
+            background-color: #333;
+            border: 2px solid #00ffcc;
+            box-shadow: 0px 0px 15px #00ffcc;
+            margin-top: -5px;
+            margin-left: 70px;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .option {
+            margin: 0 10px;
+            padding: 10px 20px;
+            color: #FFFFFF;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+        }
+
+        .option:hover {
+            color: #ff00ff;
+            transform: scale(1.1);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #333;
+            border: 2px solid #00ffcc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 25px #00ffcc;
+        }
+
+        .modal button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #00ffcc;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal button:hover {
+            background-color: #ff00ff;
+        }
+
+        /* Notification styles */
+        .notification {
+            display: none;
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            background-color: #00cc00;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            transition: opacity 0.5s;
+        }
