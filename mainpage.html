@@ -10,6 +10,7 @@
 
     <title>EdCube | Amazing free math.</title>
     <link rel="icon" href="https://i.ibb.co/bK5HjNQ/edcubefavicon.jpg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <style>
 
@@ -49,6 +50,157 @@
 
             margin-top: 50px;
 
+        }
+        h3 {
+
+            font-size: 2.6rem;
+
+            color: #00ffcc;
+
+            text-shadow: 0px 0px 10px #00ffcc;
+
+            margin-top: 50px;
+
+        }
+        /* Base styles for the toggle switch */
+        .toggle-switch {
+            margin-left: 0px;
+            //right: 760px;
+            position: relative;
+            width: 60px;
+            height: 30px;
+        }
+
+        /* Hide the checkbox */
+        .toggle-input {
+            display: none;
+        }
+
+        /* The slider (ellipse part) */
+        .toggle-label {
+            position: absolute;
+            background-color: #00ffcc;
+            border-radius: 15px;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        /* The circle inside the toggle */
+        .toggle-label::after {
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border-radius: 50%;
+            top: 2.5px;
+            left: 2.5px;
+            transition: left 0.3s ease;
+        }
+
+        /* Change the background and move the circle when the input is checked */
+        .toggle-input:checked + .toggle-label {
+            background-color: #ff00ff;
+        }
+
+        .toggle-input:checked + .toggle-label::after {
+            left: 32.5px;
+        }
+      .sliding-news-bar {
+    background-color: #111; /* Bar background */
+    position: fixed; /* Stay at the bottom */
+    bottom: 0;
+    width: 100%; /* Full width */
+    height: 50px; /* Height of the bar */
+    z-index: 9999; /* Ensure it stays on top */
+    display: none; /* Default is visible */
+}
+
+.sliding-news {
+    height: 50px;
+    //overflow: hidden;
+    position: relative;
+}
+
+.sliding-news h3 {
+    font-size: 1.5rem;
+    color: #00ffcc;
+    text-shadow: 0px 0px 10px #00ffcc;
+    margin: 0;
+    line-height: 50px;
+    position: absolute;
+    white-space: nowrap; /* Ensure the text doesn't wrap */
+    width: max-content; /* Ensures the width of the h3 adjusts to the text length */
+    height: 100%;
+    /* Starting position */
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    /* Apply animation to this element */
+    -moz-animation: slide-left 50s linear infinite;
+    -webkit-animation: slide-left 50s linear infinite;
+    animation: slide-left 50s linear infinite;
+    animation-delay: -15s;
+}
+
+
+/* Define the sliding animation */
+@-moz-keyframes slide-left {
+    0% { -moz-transform: translateX(100%); }
+    100% { -moz-transform: translateX(-100%); }
+}
+
+@-webkit-keyframes slide-left {
+    0% { -webkit-transform: translateX(100%); }
+    100% { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes slide-left {
+    0% {
+        -moz-transform: translateX(100%); /* Firefox bug fix */
+        -webkit-transform: translateX(100%); /* Firefox bug fix */
+        transform: translateX(100%);
+    }
+    100% {
+        -moz-transform: translateX(-100%); /* Firefox bug fix */
+        -webkit-transform: translateX(-100%); /* Firefox bug fix */
+        transform: translateX(-100%);
+    }
+}
+        /* Set the height of the carousel */
+        .carousel-item img {
+          border-radius: 20px;
+          height: 600px; /* Adjust the height to make the images taller */
+          width: 1180px;
+          object-fit: cover; /* Ensures the image fills the block */
+          border: 2px solid #00ffcc;
+          box-shadow: 0px 0px 15px #00ffcc;
+          //margin-bottom: 100px;
+        }
+      
+        /* Optional: set a larger width for the entire carousel */
+        #myCarousel {
+          border-radius: 20px;
+          margin-top: 20px;
+          //width: 75%; /* Make the carousel wider */
+          height: 600px; /* Adjust the height to make the images taller */
+          width: 1180px;
+          //margin-bottom: 200px;
+        }
+      
+        .carousel-caption {
+          position: absolute;
+          margin-left: 18%;
+          height: 100px;
+          width: 400px;
+          top: 65%;
+          transform: translateY(-50%);
+          color: #fff;
+          background-color: rgba(0, 0, 0, 0.5); /* Adds a background for better readability */
+          padding: 10px;
+          border-radius: 5px;
         }
       
         .game-button {
@@ -102,12 +254,14 @@
             gap: 20px; /* Space between buttons */
             justify-items: center; /* Center align buttons horizontally */
             margin: 50px 200px;
+            text-align: center;
         }
 
         .otherlinks-button {
+            text-align: center;
             display: inline-block;
             margin: 20px;
-            padding: 20px 70px;
+            padding: 20px 20px;
             background-color: #333;
             border: 2px solid #00ffcc;
             color: #00ffcc;
@@ -143,7 +297,8 @@
         /* Popup styling */
         #disclaimer-popup {
             position: fixed;
-            top: 50%;
+            //margin-top: 00;
+            top: 55%;
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: #2d2d2d;
@@ -300,18 +455,22 @@
             margin-top: 100px;
         }
          header {
-             display: flex;
-             justify-content: space-between;
-             align-items: center; /* Align vertically */
-             padding: 0px 50px; /* Reduce padding to fit better */
-             background-color: #111;
-             box-shadow: 0px 0px 15px #00ffcc;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Align vertically */
+            padding: 0px 50px; /* Reduce padding to fit better */
+            background-color: #111;
+            box-shadow: 0px 0px 15px #00ffcc;
+            //margin-bottom: 50px;
          }
 
 
         /* Logo styling */
         .logo {
-            margin-top: 7px;
+            margin-top: 0px;
             font-size: 1.8rem;
             font-weight: bold;
             color: #00ffcc;
@@ -319,6 +478,8 @@
         .logo img {
             height: 50px;
             width: 50px;
+            border-radius: 5px;
+
         }
 
         /* Login & Signup Button Styling */
@@ -362,7 +523,7 @@
          }
 
     </style>
-
+    
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -376,8 +537,8 @@
     <!-- Disclaimer Popup -->
     <div id="disclaimer-popup">
         <button id="disclaimer-close-btn">&times;</button>
-        <h3>Disclaimer</h3>
-        <p>All embedded games are property of their respective owners. By clicking "Got it!", you confirm that you are at least 18 years of age or have the legal capacity to access and use this website. You agree to comply with the website's Terms of Service and Privacy Policy. This site uses cookies to enhance your experience, and by continuing, you consent to the collection and use of your data as outlined in our policies. The content, games, and resources provided on this site are offered "as is" without any warranties, and you acknowledge that the site owners are not liable for any damages, losses, or consequences arising from the use of this site. Additionally, this site may contain links to third-party websites, and we do not take responsibility for the content, accuracy, or practices of these external sites. You agree that visiting any third-party links is at your own risk. Some games may contain flashing lights or other stimuli that could trigger health conditions such as seizures, so you agree to play at your own discretion.</p>
+        <h3 style="color: #ffcc00;">Disclaimer</h3>
+        <p>All embedded games are property of their respective owners. By clicking "Got it!", you confirm that you are at least 18 years of age or have the legal capacity to access and use this website. You agree to comply with the website's Terms of Service and Privacy Policy. This site uses cookies to enhance your experience, and by continuing, you consent to the collection and use of your data as outlined in our policies. The content, games, and resources provided on this site are offered "as is" without any warranties, and you acknowledge that the site owners are not liable for any damages, losses, or consequences arising from the use of this site. Additionally, this site may contain links to third-party websites, and we do not take responsibility for the content, accuracy, or practices of these external sites. You agree that visiting any third-party links is at your own risk.</p>
         <button id="close-disclaimer">Got it!</button>
       <span style="margin-top: 10px;">
           <a href="terms.html" id="disclaimer-more-info" target="_self" style="margin-right: 10px;">Terms of Service</a>
@@ -390,7 +551,13 @@
         <div class="logo"><img src="newmain.jpeg"></div>
 
         <!-- Login & Signup Buttons -->
-        <div class="header-buttons">
+        <div class="header-buttons" id="StickyHeader">
+             <a style="margin-right: 0px; text-decoration: underline;" class="cube-counter" href="search.html"><img style="height: 50px; width: 62.5px;" src="game_images/searchicon.png"></a>
+             <div class="toggle-switch">
+                  <input type="checkbox" id="toggle" class="toggle-input" style="margin-right: 0px;">
+                  <label for="toggle" class="toggle-label" style="margin-right: 0px;"></label>
+              </div>
+              <div style="margin-left: 30px; margin-right: 620px;">Tips Bar</div>
              <div class="cube-counter">
                  <img src="/game_images/cube.png" alt="Cube Currency:">
                  <p>0</p>
@@ -401,14 +568,68 @@
          </div>
 
     </header>
+    <div id="news-bar" class="sliding-news-bar">
+    <div class="sliding-news">
+        <h3>
+  Navigation bar coming to game pages soon!
+  <span style="margin-left: 200px;">Have a business inquiry? Contact us at <a href="mailto:edcubestudios@yahoo.com">edcubestudios@yahoo.com.</a></span>
+  <span style="margin-left: 200px;">This website is completely open-source at <a href="https://github.com/edcubelearning/backup">GitHub.</a></span>
+  <span style="margin-left: 200px;">Pro Tip: Press the "[" key or "r" key on any page to be redirected to the learning page.</span>
+</h3>
+
+    </div>
+    </div>
 
     <h2>Welcome to EdCube Gaming & Resources</h2>
+    
+    <h3 style="margin-bottom: 20px; margin-top: 50px;">Featured Games</h3>
+    <div class="container-fluid" style="border-radius: 20px;">
+        <div id="myCarousel" class="carousel slide bg-inverse ms-auto me-auto" data-bs-ride="carousel" style="border-radius: 20px;">
+          <ol class="carousel-indicators">
+            <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox" style="border-radius: 20px;">
+            <div class="carousel-item active" style="border-radius: 20px;">
+              <a href="games/cartoonstrike.html"><img class="d-block w-100" src="game_images/featured-1.png" alt="Cartoon Strike"></a>
+              <div class="carousel-caption">
+                <h5>Cartoon Strike</h5>
+                <p>A fun cartoon-style multiplayer shooter.</p>
+              </div>
+            </div>
+            <div class="carousel-item" style="border-radius: 20px;">
+              <a href="games/battleroyale.html"><img class="d-block w-100" src="game_images/featured-2.png" alt="Battle Royale"></a>
+              <div class="carousel-caption">
+                <h5>Battle Royale</h5>
+                <p>Fight to be the last one standing in this epic battle.</p>
+              </div>
+            </div>
+            <div class="carousel-item" style="border-radius: 20px;">
+              <a href="games/cartoontanks.html"><img class="d-block w-100" src="game_images/featured-3.png" alt="Cartoon Tanks"></a>
+              <div class="carousel-caption">
+                <h5>Cartoon Tanks</h5>
+                <p>Engage in tank warfare with a cartoonish twist.</p>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </div>
+      </div>
 
-    <p>Select a game to start playing:</p>
+
+    <h3 style="margin-top: 100px;">All Games</h3>
 
 
 
-    <div class="button-container">
+    <div style="margin-top: 40px;" class="button-container">
         <!-- Example: <a href="/games/.html" class="game-button"><img class="gameimg" src="/game_images/.png" alt=" Logo"><span></span></a> -->
         <a href="/games/amongus.html" class="game-button"><img class="gameimg" src="/game_images/amongus.png" alt="Among Us Logo"><span>Among Us</span></a>
 
@@ -423,6 +644,8 @@
         <a href="/games/bulletbonanza.html" class="game-button"><img class="gameimg" src="/game_images/bulletbonanza.png" alt="Bullet Bonanza Logo"><span>Bullet Bonanza</span></a>
 
         <a href="/games/cartoonstrike.html" class="game-button"><img class="gameimg" src="/game_images/cartoonstrike.png" alt="Cartoon Strike Logo"><span>Cartoon Strike</span></a>
+        
+        <a href="/games/cartoontanks.html" class="game-button"><img class="gameimg" src="/game_images/ctanks.png" alt="Cartoon Tanks Logo"><span>Cartoon Tanks</span></a>
 
         <a href="/games/clankerio.html" class="game-button"><img class="gameimg" src="/game_images/clankerio.png" alt="Clanker.io Logo"><span>Clanker.io</span></a>
 
@@ -547,13 +770,13 @@
 
         <a href="https://edcube.firebaseapp.com/" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Firebase App</a>
 
-        <a href="https://edcube.web.app/?ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Web App</a>
+        <a href="https://edcube.web.app/" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Web App</a>
 
-        <a href="https://edcubelearning.github.io/backup/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Github Pages</a>
+        <a href="https://edcubelearning.github.io/backup/?ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Github Pages</a>
     
-        <a href="https://edcube.vercel.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Vercel #1</a>
+        <a href="https://edcube.vercel.app/?ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Vercel</a>
 
-        <a href="https://edcube.netlify.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Netlify #1</a>
+        <!-- <a href="https://edcube.netlify.app/?ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Netlify</a>
     
         <a href="https://edcube-edcubelearnings-projects.vercel.app/#ion" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Vercel #2</a>
 
@@ -573,7 +796,7 @@
 
         <a href="https://backup-w1ew.onrender.com" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Render</a>
 
-        <a href="https://brief-horse-puny.on-fleek.app/" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Fleek</a>
+        <a href="https://brief-horse-puny.on-fleek.app/" class="otherlinks-button" target="_blank" rel="noopener noreferrer">Fleek</a> -->
       
     </div>
 
@@ -607,6 +830,8 @@
             <a href="https://www.flickr.com/photos/201435764@N07/" target="_blank"><i class="fab fa-flickr"></i></a>
 
             <a href="https://www.tumblr.com/edcubestudios" target="_blank"><i class="fab fa-tumblr"></i></a>
+            
+            <link rel="me" href="https://mastodon.social/@edcube"></link>
 
 
 
@@ -643,6 +868,16 @@
         document.getElementById('page-blur').style.display = 'none';
         sessionStorage.setItem('disclaimerAccepted', 'true');
     };
+    window.onscroll = function() {myFunction()};
+    var header = document.getElementById("StickyHeader");
+    var sticky = header.offsetTop;
+    function myFunction() {
+    if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+    } else {
+        header.classList.remove("sticky");
+    }};
+
     document.addEventListener('keydown', function(event) {
         // Check if the '[' key is pressed 
         if (event.key === 'r' || event.key === '[') {
@@ -650,7 +885,21 @@
             window.location.href = 'index.html'; // Replace with the actual URL
         }
     });
+    const toggleInput = document.getElementById('toggle');
+        const news_bar = document.getElementById("news-bar");
+
+        toggleInput.addEventListener('change', function() {
+            if (toggleInput.checked) {
+                news_bar.style.display = "block";
+                console.log("Toggle is ON");
+            } else {
+                news_bar.style.display = "none";
+                console.log("Toggle is OFF");
+            }
+        });
 </script>
+<!-- Bundled -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 
 </html>

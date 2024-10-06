@@ -1,0 +1,240 @@
+     <!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EdCube | Amazing free math.</title>
+    <link rel="icon" href="https://i.ibb.co/bK5HjNQ/edcubefavicon.jpg" type="image/x-icon">
+    <link href="/styles.css" rel="stylesheet" type="text/css" media="all">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+h2 {
+
+            font-size: 3rem;
+
+            margin-left: 50px;
+
+            color: #00ffcc;
+
+            text-shadow: 0px 0px 10px #00ffcc;
+
+            margin-top: 20px;
+
+        }
+
+body {
+
+            background-color: #1a1a1a;
+
+            color: #00ffcc;
+
+            font-family: 'Orbitron', sans-serif;
+
+            margin: 0;
+
+            padding: 0;
+
+            //text-align: center;
+
+        }
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 40%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  display: inline-block;
+  margin-left: 50px;
+  border-radius: 10px;
+  background-color: #d3d3d3;
+  color: #000000;
+}
+#myInput placeholder {
+    color: #ff00ff;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  display: inline-block;
+
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 60%;
+
+    padding: 15px 30px;
+
+    background-color: #333;
+
+    border: 1px solid #00ffcc;
+
+    color: #00ffcc;
+
+    text-decoration: none;
+
+    font-size: 1.5rem;
+
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 15px #00ffcc;
+
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #ff00ff;
+ 
+  box-shadow: 0px 0px 25px #ff00ff;
+}
+.back-button {
+
+            display: inline-block;
+
+            margin-top: 30px;
+            
+            margin-left: 320px;
+            
+            margin-bottom: 50px;
+
+            padding: 15px 30px;
+
+            background-color: #333;
+
+            border: 2px solid #00ffcc;
+
+            color: #00ffcc;
+
+            text-decoration: none;
+
+            font-size: 1.5rem;
+
+            border-radius: 10px;
+
+            box-shadow: 0px 0px 15px #00ffcc;
+
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+
+        }
+
+
+
+        .back-button:hover {
+
+            background-color: #ff00ff;
+
+            box-shadow: 0px 0px 25px #ff00ff;
+
+        }
+</style>
+
+</head>
+
+<body>
+    <h2>Search for Games & Resources</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for games or resources.." title="Type in a name">
+
+<ul id="myUL">
+<!-- example: <li><a href="/games/.html"></a></li> -->
+  <li><a href="/games/amongus.html">Among Us</a></li>
+  <li><a href="/games/">Battlegrounds 2D</a></li>
+  <li><a href="/games/battleroyale.html">Battle Royale</a></li>
+  <li><a href="/games/bitlife.html">Bitlife</a></li>
+  <li><a href="/games/brutal.html">Brutal.io</a></li>
+  <li><a href="/games/bulletbonanza.html">Bullet Bonanza</a></li>
+  <li><a href="/games/cartoonstrike.html">Cartoon Strike</a></li>
+  <li><a href="/games/cartoontanks.html">Cartoon Tanks</a></li>
+  <li><a href="/games/chatgpt.html">ChatGPT</a></li>
+  <li><a href="/games/clankerio.html">Clanker.io</a></li>
+  <li><a href="/games/clashroyale.html">Clash Royale</a></li>
+  <li><a href="/games/cryzen.html">Cryzen.io</a></li>
+  <li><a href="https://cubeproxy.vercel.app">CubeProxy</a></li>
+  <li><a href="/games/cubeshot.html">Cubeshot.io</a></li>
+  <li><a href="https://cube0.vercel.app">CUBE0 AI</a></li>
+  <li><a href="/games/diep.html">Diep.io</a></li>
+  <li><a href="https://sites.google.com/view/edcubetech/home">EdCube Tech Tips</a></li>
+  <li><a href="/games/ferge.html">Ferge.io</a></li>
+  <li><a href="/games/geodash.html">Geometry Dash Lite</a></li>
+  <li><a href="https://history.education.hbmc.net">Interstellar Proxy</a></li>
+  <li><a href="/games/krunker.html">Krunker.io</a></li>
+  <li><a href="/games/lolshot.html">Lolshot.io</a></li>
+  <li><a href="/games/minecraft.html">Minecraft</a></li>
+  <li><a href="/games/miniroyale.html">Mini Royale</a></li>
+  <li><a href="/games/monkeymart.html">Monkey Mart</a></li>
+  <li><a href="/games/nealfun.html">Neal.fun</a></li>
+  <li><a href="/games/nuggetroyale.html">Nugget Royale</a></li>
+  <li><a href="/games/paperio.html">Paper.io 2</a></li>
+  <li><a href="/games/powerline.html">Powerline.io</a></li>
+  <li><a href="/games/repuls.html">Repuls.io</a></li>
+  <li><a href="/games/sandstrike.html">Sand Strike</a></li>
+  <li><a href="/games/searchencrypt.html">Search Encrypt</a></li>
+  <li><a href="/games/shellshockers.html">Shellshockers</a></li>
+  <li><a href="/games/shootem.html">ShootEm.io</a></li>
+  <li><a href="/games/slayerz.html">Slayerz.io</a></li>
+  <li><a href="/games/slitherio.html">Slither.io</a></li>
+  <li><a href="/games/slope3.html">Slope 3</a></li>
+  <li><a href="/games/smashkarts.html">Smash Karts</a></li>
+  <li><a href="/games/snay.html">Snay.io</a></li>
+  <li><a href="/games/snowballio.html">Snowball.io</a></li>
+  <li><a href="/games/starblast.html">Starblast.io</a></li>
+  <li><a href="/games/stomped.html">Stomped.io</a></li>
+  <li><a href="/games/stumbleguys.html">Stumble Guys</a></li>
+  <li><a href="/games/subwaysurfers.html">Subway Surfers</a></li>
+  <li><a href="/games/survivio.html">Surviv.io</a></li>
+  <li><a href="/games/swordz.html">Swordz.io</a></li>
+  <li><a href="/games/litsolutions.html">Textbook Answers</a></li>
+  <li><a href="/games/tribals.html">Tribals.io</a></li>
+  <li><a href="/games/vectaria.html">Vectaria</a></li>
+  <li><a href="/games/warbands.html">Warbands</a></li>
+  <li><a href="/games/justedit.html">1v1.lol</a></li>
+  <li><a href="/games/interstellar-links.html">80+ Interstellar Proxy Links</a></li>
+</ul>
+<a href="index.html" class="back-button">Back to Home</a>
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+document.addEventListener('keydown', function(event) {
+        // Check if the '[' key is pressed 
+        if (event.key === 'r' || event.key === '[') {
+            // Redirect to the desired page
+            window.location.href = 'index.html'; // Replace with the actual URL
+        }
+    });
+</script>
+
+</body>
+
+</html>
+
